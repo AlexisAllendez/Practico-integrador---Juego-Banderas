@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Juego de banderas</title>
+</head>
+<body>
+    <div class="contenedor">
+      
+      
+      <div class="pantalla-inicio activa">
+        <h1>Juego de Banderas</h1>
+        <input type="text" id="nombre-usuario" placeholder="Ingresa tu nombre" />
+        <button id="btn-comenzar">Comenzar el Juego</button>
+      </div>
+  
+      
+      <div class="pantalla-pregunta">
+        <div class="contador-pregunta" id="contador-pregunta">Pregunta 1 de 10</div>
+        <div class="pregunta" id="texto-pregunta">¿Cuál es el país de la ciudad capital París?</div>
+        <div class="opciones" id="contenedor-opciones"></div>
+        <button id="btn-siguiente">Siguiente</button>
+
+      </div>
+
+      <div class="pantalla-final">
+        <h2>Resultados</h2>
+        <p id="resultado-usuario"></p>
+        <h3>Ranking</h3>
+        <table id="tabla-ranking">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Correctas</th>
+              <th>Incorrectas</th>
+              <th>Puntaje</th>
+              <th>Tiempo (s)</th>
+              <th>Promedio (s)</th>
+              <th>Fecha</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <button id="btn-reiniciar">Volver a jugar</button>
+      </div>
+  
+    </div>
+
+  </body>
+</html>
