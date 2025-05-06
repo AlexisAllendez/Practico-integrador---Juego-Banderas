@@ -157,3 +157,32 @@
     width: 100%;
     table-layout: auto;
   }
+
+  .oro {
+    background-color: gold;
+    font-weight: bold;
+  }
+  .plata {
+    background-color: silver;
+    font-weight: bold;
+  }
+  .bronce {
+    background-color: #cd7f32; 
+    font-weight: bold;
+  }
+
+  #ranking-contenedor {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
+    padding: 0 20px;
+    margin-bottom: 0;
+  }
+  
+  #ranking-contenedor.mostrar {
+    max-height: 1000px;
+    opacity: 1;
+    padding: 20px;
+    margin-bottom: 20px;
+  }

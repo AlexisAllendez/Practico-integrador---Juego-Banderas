@@ -6,6 +6,8 @@ const textoPregunta = document.getElementById('texto-pregunta');
 const contenedorOpciones = document.getElementById('contenedor-opciones');
 const contadorPregunta = document.getElementById('contador-pregunta');
 const btnSiguiente = document.getElementById('btn-siguiente');
+const btnMostrarRanking = document.getElementById('btn-mostrar-ranking');
+const contenedorRanking = document.getElementById('ranking-contenedor');
 
 let datosPaises = [];
 let preguntas = [];
@@ -213,14 +215,17 @@ async function cargarPaises() {
   const respuesta = await fetch('/ranking');
   const data = await respuesta.json();
 
-  
-  data.sort((a, b) => b.puntaje - a.puntaje);
 
   const tablaRanking = document.querySelector('#tabla-ranking tbody');
   tablaRanking.innerHTML = '';
 
   data.forEach((item, index) => {
     const fila = document.createElement('tr');
+  
+    if (index === 0) fila.classList.add('oro');
+    else if (index === 1) fila.classList.add('plata');
+    else if (index === 2) fila.classList.add('bronce');
+  
     fila.innerHTML = `
       <td>${index + 1}</td>
       <td>${item.nombre}</td>
@@ -238,3 +243,16 @@ async function cargarPaises() {
   document.getElementById('btn-reiniciar').addEventListener('click', () => {
     location.reload();
   });
+
+  
+
+
+btnMostrarRanking.addEventListener('click', () => {
+  if (contenedorRanking.classList.contains('mostrar')) {
+    contenedorRanking.classList.remove('mostrar');
+    btnMostrarRanking.textContent = 'Mostrar Ranking';
+  } else {
+    contenedorRanking.classList.add('mostrar');
+    btnMostrarRanking.textContent = 'Ocultar Ranking';
+  }
+});

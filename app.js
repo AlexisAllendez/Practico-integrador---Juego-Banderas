@@ -54,8 +54,11 @@ app.get('/ranking', (req, res) => {
       if (b.puntaje !== a.puntaje) return b.puntaje - a.puntaje;
       return a.tiempo - b.tiempo;
     });
-
-    res.json(ranking);
+    
+  
+    const top20 = ranking.slice(0, 20);
+    
+    res.json(top20);
   });
 });
 
